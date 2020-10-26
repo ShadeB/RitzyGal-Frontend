@@ -1,0 +1,21 @@
+@function font-weights($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin PC {
+  @media screen and (min-width: $PC) {
+    @content;
+  }
+}
+
+@mixin Desktop {
+  @media screen and (min-width: $Desktop) {
+    @content;
+  }
+}
