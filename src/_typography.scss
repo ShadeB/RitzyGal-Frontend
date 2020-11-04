@@ -3,11 +3,12 @@
 @import "./variables";
 
 body {
-  font-family: "Open sans", sans-serif;
+  font-family: "Neuton", serif;
   font-size: 1.8rem;
-  font-weight: font-weights(bold);
+  font-weight: font-weights(regular);
   color: $black;
   background-color: $white;
+  line-height: 1.2;
 }
 
 h1,
