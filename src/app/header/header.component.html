@@ -1,1 +1,34 @@
-<p>header works!</p>
+<header id="header">
+  <nav
+    class="container flex__container flex-justify__space-between"
+    id="navbar"
+  >
+    <button class="nav-button display-none-md">
+      <span></span>
+    </button>
+    <a href="#" id="logo" class="display-sm-none">Logo</a>
+    <div class="user-actions__container">
+      <ul class="flex__container">
+        <li
+          class="flex__container flex-align__center flex-direction__row-reverse"
+        >
+          Cart
+          <img
+            src="../../assets/shopping-cart__image.svg"
+            alt="shopping cart image"
+          />
+        </li>
+        <li class="flex__container flex-align__center">
+          Sign in
+          <img src="../../assets/user-logo__image.svg" alt="user logo image" />
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="search-bar__container">
+    <button class="search-bar__icon" type="submit">
+      <img src="../../assets/search-bar__icon.svg" alt="search icon" />
+    </button>
+    <input type="search" class="search-bar__input" />
+  </div>
+</header>
