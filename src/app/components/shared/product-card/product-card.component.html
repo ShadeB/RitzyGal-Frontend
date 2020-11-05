@@ -1,0 +1,26 @@
+<div class="product__card">
+  <figure>
+    <img
+      src="../../../../assets/product-images/vicky-cheng-unsplash.jpg"
+      alt="dress image"
+      srcset=""
+    />
+  </figure>
+  <div class="product-card__data">
+    <div class="product-card__info">
+      <p>black summer dress</p>
+      <p>{{ 302.5 | currency: "USD" }}</p>
+    </div>
+    <div class="product-card__details">
+      <p>red summer dress perfect for outdoors</p>
+      <p>
+        rating:
+        <ng-container *ngFor="let star of stars"
+          ><app-star-rating></app-star-rating
+        ></ng-container>
+      </p>
+    </div>
+  </div>
+
+  <a href="" class="btn-add__to-cart text-center">Add to cart</a>
+</div>
