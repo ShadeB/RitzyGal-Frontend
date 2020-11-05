@@ -1,5 +1,22 @@
+@import "./mixins";
+
+.layout {
+  padding: 0 2rem;
+}
+
 .text-center {
   text-align: center;
+}
+
+.heading {
+  font-weight: font-weights(bold);
+  font-size: 2.3rem;
+  color: $dark-moderate-blue;
+  margin-bottom: 1.5rem;
+
+  @include smart-phone {
+    font-size: 3rem;
+  }
 }
 
 .screen-reader-only {
