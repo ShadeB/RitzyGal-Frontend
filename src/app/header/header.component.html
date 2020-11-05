@@ -25,10 +25,21 @@
       </ul>
     </div>
   </nav>
-  <div class="search-bar__container">
+  <form class="search-bar__container">
+    <label id="search-bar__input-label" for="search" class="screen-reader-only"
+      >search for an item:</label
+    >
+    <input
+      type="search"
+      id="search"
+      name="search"
+      class="search-bar__input"
+      placeholder="Press enter to search..."
+      aria-label="Search for an item"
+      required
+    />
     <button class="search-bar__icon" type="submit">
       <img src="../../assets/search-bar__icon.svg" alt="search icon" />
     </button>
-    <input type="search" class="search-bar__input" />
-  </div>
+  </form>
 </header>
