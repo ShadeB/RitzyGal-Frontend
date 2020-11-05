@@ -2,6 +2,12 @@
   @return map-get($font-weights, $weight-name);
 }
 
+@mixin smart-phone {
+  @media screen and (min-width: $smart-phone) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media screen and (min-width: $tablet) {
     @content;
