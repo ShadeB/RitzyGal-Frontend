@@ -1,5 +1,6 @@
 @import "../../variables";
 @import "../../mixins";
+@import "../../utilities";
 
 #footer {
   background-color: $dark-moderate-blue;
@@ -42,6 +43,8 @@
 }
 
 .newsletter-signup {
+  max-width: 36rem;
+  margin: auto;
   & > &__form {
     > input,
     button {
@@ -64,64 +67,5 @@
         text-align: center;
       }
     }
-  }
-}
-
-@media screen and (min-width: 720px) {
-  .footer__column {
-    flex: 1 1 40%;
-  }
-
-  .social-icons__container {
-    flex: 1 1 28%;
-  }
-
-  .social-icons__container {
-    text-align: left;
-  }
-
-  .footer__heading {
-    margin-top: -1.5rem;
-  }
-
-  .social-icons__list {
-    justify-content: flex-start;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .footer__column {
-    flex: 1 1 18%;
-  }
-
-  .contact__links {
-    flex: 1 1 40%;
-  }
-
-  .social-icons__container {
-    flex: 1 1 15%;
-  }
-
-  .footer__heading {
-    font-size: 2rem;
-    margin-top: -0.5rem;
-  }
-}
-
-@media screen and (min-width: 1140px) {
-  .footer__container > :last-child {
-    flex: 1 1 20%;
-  }
-
-  .footer-logo__container {
-    flex: 1 1 20%;
-  }
-
-  .site__links {
-    flex: 1 1 20%;
-  }
-
-  .contact__links {
-    flex: 1 1 40%;
   }
 }
