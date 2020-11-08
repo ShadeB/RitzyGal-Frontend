@@ -10,6 +10,7 @@ import { ProductListingComponent } from './product-listing/product-listing.compo
 import { FooterComponent } from './footer/footer.component';
 import { ProductCardComponent } from './components/shared/product-card/product-card.component';
 import { StarRatingComponent } from './components/shared/star-rating/star-rating.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { StarRatingComponent } from './components/shared/star-rating/star-rating
     ProductListingComponent,
     FooterComponent,
     ProductCardComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
