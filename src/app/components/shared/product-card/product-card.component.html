@@ -1,18 +1,18 @@
 <div class="product__card">
   <figure>
     <img
-      src="../../../../assets/product-images/vicky-cheng-unsplash.jpg"
+      src="{{product.image}}"
       alt="dress image"
-      srcset=""
     />
+
   </figure>
   <div class="product-card__data">
     <div class="product-card__info">
-      <p>black summer dress</p>
-      <p>{{ 302.5 | currency: "USD" }}</p>
+      <p>{{product.name}}</p>
+      <p>{{ product.price | currency: "USD" }}</p>
     </div>
     <div class="product-card__details">
-      <p>red summer dress perfect for outdoors</p>
+      <p>{{product.description}}</p>
       <p>
         rating:
         <ng-container *ngFor="let star of stars"
