@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductCardComponent } from './components/shared/product-card/product-card.component';
 import { StarRatingComponent } from './components/shared/star-rating/star-rating.component';
 import { HomepageComponent } from './homepage/homepage.component';
-
+import { GraphQLModule } from './graphql.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +26,8 @@ import { HomepageComponent } from './homepage/homepage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    GraphQLModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
