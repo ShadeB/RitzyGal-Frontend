@@ -1,8 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-
-import {Product} from '../Interfaces/product';
-import {ProductService} from '../services/product.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-listing',
@@ -11,12 +7,13 @@ import {ProductService} from '../services/product.service';
 })
 export class ProductListingComponent implements OnInit {
 
-  productData: Product;
+  @Input() products: [any];
+  @Input() loading: boolean;
+  @Input() errors: any;
 
-  constructor(private _productService: ProductService) { };
+  constructor() { };
 
   ngOnInit(): void {
-    this._productService.resolveData().subscribe(response => this.productData = response);
   };
 
 }
