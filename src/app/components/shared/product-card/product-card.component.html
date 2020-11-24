@@ -1,18 +1,14 @@
 <div class="product__card">
   <figure>
-    <img
-      src="{{product.image}}"
-      alt="dress image"
-    />
-
+    <img src="{{ product.image }}" alt="dress image" />
   </figure>
   <div class="product-card__data">
     <div class="product-card__info">
-      <p>{{product.name}}</p>
+      <p>{{ product.name }}</p>
       <p>{{ product.price | currency: "USD" }}</p>
     </div>
     <div class="product-card__details">
-      <p>{{product.description}}</p>
+      <p>{{ product.description }}</p>
       <p>
         rating:
         <ng-container *ngFor="let star of stars"
@@ -22,5 +18,10 @@
     </div>
   </div>
 
-  <a href="" class="btn-add__to-cart text-center">Add to cart</a>
+  <a
+    href=""
+    (click)="openAddToCart($event)"
+    class="btn-add__to-cart text-center"
+    >Add to cart</a
+  >
 </div>
