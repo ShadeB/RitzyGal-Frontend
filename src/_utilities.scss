@@ -48,6 +48,10 @@
   &-direction__row-reverse {
     flex-direction: row-reverse;
   }
+
+  &-direction__column {
+    flex-direction: column;
+  }
 }
 
 .flex-justify {
