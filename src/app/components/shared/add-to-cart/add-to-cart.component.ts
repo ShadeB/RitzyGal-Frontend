@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-to-cart.component.scss']
 })
 export class AddToCartComponent implements OnInit {
+  selectedColor: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  colorInputChangeHandler(value: string) {
+    this.selectedColor = value;
   }
 
 }
