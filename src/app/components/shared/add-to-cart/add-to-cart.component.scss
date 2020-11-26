@@ -7,6 +7,62 @@
       font-size: 2rem;
       font-weight: font-weights(regular);
     }
+
+    fieldset {
+      margin-bottom: 2rem;
+
+      legend {
+        font-weight: font-weights(bold);
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+
+        span {
+          font-weight: font-weights(regular);
+          margin-left: 0.4rem;
+        }
+      }
+
+      label {
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        + span {
+          font-size: 0;
+          margin: 0 0.4rem 0 0;
+        }
+
+        + span::before {
+          content: "";
+          display: inline-block;
+          width: 2rem;
+          height: 2rem;
+          transform: translateY(0.5rem);
+          border-radius: 50%;
+          border: 0.15rem solid $white;
+          box-shadow: 0 0 0 0.1rem $grey;
+          margin-right: 0.75rem;
+          transition: 0.5s ease all;
+        }
+
+        &:checked {
+          + span::before {
+            background-color: #ff0000;
+            box-shadow: 0 0 0 0.2rem $grey;
+          }
+        }
+
+        &:focus {
+          + span::before {
+            box-shadow: 0 0 0 0.2rem $grey;
+          }
+        }
+      }
+    }
   }
 
   &__content {
