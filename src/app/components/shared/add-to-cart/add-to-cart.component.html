@@ -15,42 +15,26 @@
         <legend>
           color: <span>{{ selectedColor }}</span>
         </legend>
-        <label for="red">
+        <label *ngFor="let color of colors" for="{{ color.name }}">
           <input
             type="radio"
             name="color"
-            id="red"
-            value="red"
+            id="{{ color.name }}"
+            value="{{ color.name }}"
+            class="input__color-option"
             (change)="colorInputChangeHandler($event.target.value)"
           />
-          <span>red</span>
+          <span>{{ color.name }}</span>
         </label>
-        <label for="blue">
-          <input
-            type="radio"
-            name="color"
-            id="blue"
-            value="blue"
-            (change)="colorInputChangeHandler($event.target.value)"
-          /><span>blue</span>
-        </label>
-        <label for="black"
-          ><input
-            type="radio"
-            name="color"
-            id="black"
-            value="black"
-            (change)="colorInputChangeHandler($event.target.value)"
-          /><span>black</span></label
-        >
       </fieldset>
 
       <fieldset class="fieldset__size">
         <legend>size: <span>11</span></legend>
-        <div class="fieldset__group">
-          <label for="11">11</label>
-          <input type="radio" name="size" id="11" value="11" />
-        </div>
+        <label for="11">
+          <input type="radio" name="size" id="11" value="11" /><span
+            >11</span
+          ></label
+        >
         <div class="fieldset__group">
           <label for="13">13</label>
           <input type="radio" name="size" id="13" value="13" />

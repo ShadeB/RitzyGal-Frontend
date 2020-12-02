@@ -7,6 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddToCartComponent implements OnInit {
   selectedColor: string = '';
+  colors = [
+    { name: 'red',
+      Hex: '#ff0000',
+    },
+    {
+      name: 'blue',
+      Hex: '#0000ff',
+    },
+    {
+      name: "black",
+      black: '#000',
+    },
+
+  ];
 
   constructor() { }
 
