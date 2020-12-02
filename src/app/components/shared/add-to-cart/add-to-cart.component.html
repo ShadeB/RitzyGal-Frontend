@@ -15,14 +15,14 @@
         <legend>
           color: <span>{{ selectedColor }}</span>
         </legend>
-        <label *ngFor="let color of colors" for="{{ color.name }}">
+        <label *ngFor="let color of colors; index as i" for="{{ color.name }}">
           <input
             type="radio"
             name="color"
             id="{{ color.name }}"
             value="{{ color.name }}"
             class="input__color-option"
-            (change)="colorInputChangeHandler($event.target.value)"
+            (change)="colorInputChangeHandler($event.target.value, i)"
           />
           <span>{{ color.name }}</span>
         </label>

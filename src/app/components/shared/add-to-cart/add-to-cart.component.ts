@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddToCartComponent implements OnInit {
   selectedColor: string = '';
+  colorHexValue: string = '';
   colors = [
     { name: 'red',
       Hex: '#ff0000',
@@ -17,7 +18,7 @@ export class AddToCartComponent implements OnInit {
     },
     {
       name: "black",
-      black: '#000',
+      Hex: '#000',
     },
 
   ];
@@ -27,8 +28,9 @@ export class AddToCartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  colorInputChangeHandler(value: string) {
+  colorInputChangeHandler(value: string, index: any) {
     this.selectedColor = value;
+    this.colorHexValue = this.colors[index]["Hex"];
+    document.documentElement.style.setProperty('--bg-color-picked', this.colorHexValue)
   }
-
 }

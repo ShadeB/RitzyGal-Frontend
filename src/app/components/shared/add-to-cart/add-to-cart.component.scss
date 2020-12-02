@@ -1,6 +1,10 @@
 @import "../../../../utilities";
 @import "../../../../variables";
 
+:root {
+  --bg-color-picked: #000;
+}
+
 .add-to-cart {
   &__container {
     p {
@@ -56,7 +60,7 @@
 
             &:checked {
               + span::before {
-                background-color: #ff0000;
+                background-color: var(--bg-color-picked);
                 box-shadow: 0 0 0 0.2rem $grey;
               }
             }
