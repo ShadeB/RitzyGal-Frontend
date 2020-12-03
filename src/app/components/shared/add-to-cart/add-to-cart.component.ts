@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddToCartComponent implements OnInit {
   selectedColor: string = '';
+  selectedSize: number;
   colorHexValue: string = '';
   colors = [
     { name: 'red',
@@ -36,5 +37,9 @@ export class AddToCartComponent implements OnInit {
     this.selectedColor = value;
     this.colorHexValue = this.colors[index]["Hex"];
     document.documentElement.style.setProperty('--bg-color-picked', this.colorHexValue)
+  }
+
+  sizeInputChangeHandler(size: number) {
+    this.selectedSize = size;
   }
 }

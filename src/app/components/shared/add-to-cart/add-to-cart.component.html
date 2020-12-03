@@ -29,7 +29,9 @@
       </fieldset>
 
       <fieldset class="fieldset__size">
-        <legend>size: <span>11</span></legend>
+        <legend>
+          size: <span>{{ selectedSize }}</span>
+        </legend>
         <label
           *ngFor="let size of sizes"
           for="{{ size }}"
@@ -40,6 +42,7 @@
             name="size"
             id="{{ size }}"
             value="{{ size }}"
+            (change)="sizeInputChangeHandler($event.target.value)"
           /><span>{{ size }}</span></label
         >
       </fieldset>
