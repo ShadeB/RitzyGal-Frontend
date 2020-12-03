@@ -85,6 +85,26 @@
             text-align: center;
             margin-right: 1rem;
           }
+
+          > input {
+            &:checked {
+              + span {
+                box-shadow: 0 0 0 0.2rem $grey;
+              }
+            }
+
+            &:focus {
+              + span {
+                box-shadow: 0 0 0 0.2rem $grey;
+              }
+            }
+
+            &:hover {
+              + span {
+                box-shadow: 0 0 0 0.2rem $grey;
+              }
+            }
+          }
         }
       }
     }
