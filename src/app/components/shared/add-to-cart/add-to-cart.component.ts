@@ -23,6 +23,10 @@ export class AddToCartComponent implements OnInit {
 
   ];
 
+  sizes = [
+    7, 9, 12, 14, 15
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

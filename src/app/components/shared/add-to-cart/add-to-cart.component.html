@@ -30,19 +30,18 @@
 
       <fieldset class="fieldset__size">
         <legend>size: <span>11</span></legend>
-        <label for="11">
-          <input type="radio" name="size" id="11" value="11" /><span
-            >11</span
-          ></label
+        <label
+          *ngFor="let size of sizes"
+          for="{{ size }}"
+          class="lbl-input__size-option"
         >
-        <div class="fieldset__group">
-          <label for="13">13</label>
-          <input type="radio" name="size" id="13" value="13" />
-        </div>
-        <div class="fieldset__group">
-          <label for="15">15</label>
-          <input type="radio" name="size" id="15" value="15" />
-        </div>
+          <input
+            type="radio"
+            name="size"
+            id="{{ size }}"
+            value="{{ size }}"
+          /><span>{{ size }}</span></label
+        >
       </fieldset>
 
       <button type="submit" class="btn-add__to-cart text-center">
