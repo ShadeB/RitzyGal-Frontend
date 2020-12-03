@@ -35,14 +35,11 @@
         width: 0;
         height: 0;
 
-        + span {
-          margin: 0 0.4rem 0 0;
-        }
-
         &.input {
           &__color-option {
             + span {
               font-size: 0;
+              margin-right: 0.4rem;
             }
 
             + span::before {
