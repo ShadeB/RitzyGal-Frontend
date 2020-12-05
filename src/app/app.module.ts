@@ -11,7 +11,10 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductCardComponent } from './components/shared/product-card/product-card.component';
 import { StarRatingComponent } from './components/shared/star-rating/star-rating.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { GraphQLModule } from './graphql.module';
+import { GraphQLModule } from './graphql/graphql.module';
+import { AddToCartComponent } from './components/shared/add-to-cart/add-to-cart.component';
+import {QuantityInputComponent} from './components/shared/quantity-input/quantity-input.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,10 @@ import { GraphQLModule } from './graphql.module';
     FooterComponent,
     ProductCardComponent,
     StarRatingComponent,
-    HomepageComponent
+    HomepageComponent,
+    AddToCartComponent,
+    QuantityInputComponent,
+
   ],
   imports: [
     BrowserModule,

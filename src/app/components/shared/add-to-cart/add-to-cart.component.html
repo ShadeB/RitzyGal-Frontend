@@ -4,13 +4,7 @@
     <p class="product__price">{{ 24 | currency: "USD" }}</p>
 
     <form action="" method="post">
-      <label for="quantity"></label>
-      <input
-        type="number"
-        name="product-input__quantity"
-        id="product-input__quantity"
-        class="product-input__quantity"
-      />
+      <app-quantity-input></app-quantity-input>
       <fieldset class="fieldset__color">
         <legend>
           color: <span>{{ selectedColor }}</span>
