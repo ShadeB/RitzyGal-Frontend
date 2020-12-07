@@ -1,6 +1,13 @@
+<app-header></app-header>
 <div class="add-to-cart__container">
+  <div class="add-to-cart-image__container">
+    <img
+      src="./../../../../assets/product-images/vicky-cheng-unsplash.jpg"
+      alt=""
+    />
+  </div>
   <div class="flex__container flex-direction__column add-to-cart__content">
-    <h3 class="heading product__name">Black satin top dress</h3>
+    <h3 class="heading product__name text-capitalize">Black satin top dress</h3>
     <p class="product__price">{{ 24 | currency: "USD" }}</p>
 
     <form action="" method="post">
@@ -41,7 +48,7 @@
         >
       </fieldset>
 
-      <button type="submit" class="btn-add__to-cart text-center">
+      <button type="submit" class="btn-add__to-cart text-center text-uppercase">
         Add to cart
       </button>
     </form>

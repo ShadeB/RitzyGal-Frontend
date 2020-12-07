@@ -4,6 +4,16 @@
   padding: 0 2rem;
 }
 
+.text {
+  &-capitalize {
+    text-transform: capitalize;
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+}
+
 .text-center {
   text-align: center;
 }
