@@ -45,6 +45,10 @@
     align-items: center;
   }
 
+  &-align__end {
+    align-items: flex-end;
+  }
+
   &-direction__row-reverse {
     flex-direction: row-reverse;
   }
