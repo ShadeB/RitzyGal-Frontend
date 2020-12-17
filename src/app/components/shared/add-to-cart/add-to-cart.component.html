@@ -24,6 +24,7 @@
             value="{{ color.name }}"
             class="input__color-option"
             (change)="colorInputChangeHandler($event.target.value, i)"
+            required
           />
           <span>{{ color.name }}</span>
         </label>
@@ -44,6 +45,7 @@
             id="{{ size.value }}"
             value="{{ size.key }}"
             (change)="sizeInputChangeHandler($event.target.value)"
+            required
           /><span>{{ size.key | uppercase }}</span></label
         >
       </fieldset>
