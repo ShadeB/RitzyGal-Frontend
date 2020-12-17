@@ -31,20 +31,20 @@
 
       <fieldset class="fieldset__size">
         <legend>
-          size: <span>{{ selectedSize }}</span>
+          size: <span>{{ selectedSize | uppercase }}</span>
         </legend>
         <label
-          *ngFor="let size of sizes"
-          for="{{ size }}"
+          *ngFor="let size of sizes | keyvalue: keepObjectOrder"
+          for="{{ size.value }}"
           class="lbl-input__size-option"
         >
           <input
             type="radio"
             name="size"
-            id="{{ size }}"
-            value="{{ size }}"
+            id="{{ size.value }}"
+            value="{{ size.key }}"
             (change)="sizeInputChangeHandler($event.target.value)"
-          /><span>{{ size }}</span></label
+          /><span>{{ size.key | uppercase }}</span></label
         >
       </fieldset>
 

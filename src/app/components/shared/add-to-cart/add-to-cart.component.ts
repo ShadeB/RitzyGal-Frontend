@@ -24,9 +24,7 @@ export class AddToCartComponent implements OnInit {
 
   ];
 
-  sizes = [
-    7, 9, 12, 14, 15
-  ]
+  sizes = {s: "small", m: "medium", l: "large"}
 
   constructor() { }
 
@@ -42,4 +40,6 @@ export class AddToCartComponent implements OnInit {
   sizeInputChangeHandler(size: number) {
     this.selectedSize = size;
   }
+
+  public keepObjectOrder = (index: { key: any; }) => index.key
 }
