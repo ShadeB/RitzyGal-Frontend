@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-quantity-input',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quantity-input.component.scss']
 })
 export class QuantityInputComponent implements OnInit {
+  quantity: number = 0;
+
+  @Output() quantityChange = new EventEmitter();
 
   constructor() { }
 
@@ -18,6 +21,8 @@ export class QuantityInputComponent implements OnInit {
     const inputNode = box.querySelectorAll('.quantity-input__field');
     const htmlInputElement = inputNode[0] as HTMLInputElement;
     htmlInputElement.stepUp();
+    this.quantity = parseInt(htmlInputElement.value, 10);
+    this.quantityChange.emit(this.quantity);
   }
 
   public quantityDecrement():void {
@@ -25,5 +30,12 @@ export class QuantityInputComponent implements OnInit {
     const inputNode = box.querySelectorAll('.quantity-input__field');
     const htmlInputElement = inputNode[0] as HTMLInputElement;
     htmlInputElement.stepDown();
+    this.quantity = parseInt(htmlInputElement.value, 10);
+    this.quantityChange.emit(this.quantity);
+  }
+
+  handleInputChange(value: string) {
+    this.quantity = parseInt(value, 10);
+    this.quantityChange.emit(this.quantity);
   }
 }

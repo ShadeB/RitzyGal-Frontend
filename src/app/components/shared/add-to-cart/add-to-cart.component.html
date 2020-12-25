@@ -10,8 +10,10 @@
     <h3 class="heading product__name text-capitalize">Black satin top dress</h3>
     <p class="product__price">{{ 24 | currency: "USD" }}</p>
 
-    <form action="" method="post">
-      <app-quantity-input></app-quantity-input>
+    <form action="" method="post" (submit)="addToCart($event)">
+      <app-quantity-input
+        (quantityChange)="getQuantityValue($event)"
+      ></app-quantity-input>
       <fieldset class="fieldset__color">
         <legend>
           color: <span>{{ selectedColor }}</span>

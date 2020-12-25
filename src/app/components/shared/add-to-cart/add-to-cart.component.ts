@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { type } from 'os';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-to-cart.component.scss']
 })
 export class AddToCartComponent implements OnInit {
+  quantity: number = 0;
   selectedColor: string = '';
   selectedSize: number;
   colorHexValue: string = '';
@@ -42,4 +44,13 @@ export class AddToCartComponent implements OnInit {
   }
 
   public keepObjectOrder = (index: { key: any; }) => index.key
+
+  getQuantityValue(value: number) {
+    this.quantity = value;
+  }
+
+  addToCart(event: Event) {
+    event.preventDefault();
+    console.log({color: this.selectedColor, size: this.selectedSize, quantity: this.quantity});
+  }
 }

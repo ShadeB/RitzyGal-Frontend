@@ -30,6 +30,7 @@
     value="1"
     id="quantity-input"
     class="quantity-input__field"
+    (input)="handleInputChange($event.target.value)"
   />
   <div class="quantity-button__container">
     <button
