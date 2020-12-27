@@ -14,6 +14,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { GraphQLModule } from './graphql/graphql.module';
 import { AddToCartComponent } from './components/shared/add-to-cart/add-to-cart.component';
 import {QuantityInputComponent} from './components/shared/quantity-input/quantity-input.component';
+import {CartSideWidgetComponent} from './components/cart-side-widget/cart-side-widget.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {QuantityInputComponent} from './components/shared/quantity-input/quantit
     HomepageComponent,
     AddToCartComponent,
     QuantityInputComponent,
+    CartSideWidgetComponent,
 
   ],
   imports: [

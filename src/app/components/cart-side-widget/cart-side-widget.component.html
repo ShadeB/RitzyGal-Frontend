@@ -1,0 +1,64 @@
+<div
+  class="cart-widget__wrapper"
+  [ngClass]="{ 'cart-widget__wrapper-active': sideWidgetActive }"
+>
+  <div
+    class="cart-widget__overlay"
+    [ngClass]="{ 'cart-widget__overlay-active': sideWidgetActive }"
+    (click)="sideBarClose()"
+  ></div>
+
+  <div
+    class="cart-widget__container"
+    [ngClass]="{ 'cart-widget__container-active': sideWidgetActive }"
+  >
+    <div
+      class="cart-widget__header flex__container flex-justify__space-between"
+    >
+      <div class="cart-widget__title">
+        <h2 class="text-uppercase">Shopping cart</h2>
+      </div>
+      <div class="cart-widget-close__container">
+        <button
+          type="button"
+          class="cart-widget-close__button text-uppercase"
+          (click)="sideBarClose()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <div class="cart-items__container">
+      <div class="cart-item flex__container" *ngFor="let item of cartItems">
+        <div class="cart-item-image__container">
+          <img src="{{ item.image }}" alt="" srcset="" />
+        </div>
+        <div
+          class="cart-item-info__container flex__container flex-direction__column flex-justify__space-between"
+        >
+          <div class="cart-item-name__container">
+            <p class="text-capitalize">{{ item.name }}</p>
+          </div>
+          <div class="cart-item-price__container">
+            <p>
+              quantity: <span>{{ item.quantity }}</span>
+            </p>
+            <p class="cart-item__price">
+              price:<span>{{ item.price | currency: "USD" }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-widget__footer">
+      <div
+        class="subtotal__container flex__container flex-justify__space-between"
+      >
+        <h2 class="text-uppercase">subtotal</h2>
+        <p>{{ cartTotal | currency: "USD" }}</p>
+      </div>
+    </div>
+  </div>
+</div>
