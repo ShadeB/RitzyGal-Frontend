@@ -8,5 +8,5 @@ export interface CartItem {
 }
 
 export interface Cart {
-  Cart: CartItem
+  cart: CartItem
 }

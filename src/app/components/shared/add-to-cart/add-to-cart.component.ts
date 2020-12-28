@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { type } from 'os';
+import {Observable} from 'rxjs';
+import {CartService} from 'src/app/services/cart.service';
+import {Cart,CartItem} from 'src/app/Interfaces/cart';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -7,7 +10,7 @@ import { type } from 'os';
   styleUrls: ['./add-to-cart.component.scss']
 })
 export class AddToCartComponent implements OnInit {
-  quantity: number = 0;
+  quantity: number = 1;
   selectedColor: string = '';
   selectedSize: number;
   colorHexValue: string = '';
@@ -28,7 +31,14 @@ export class AddToCartComponent implements OnInit {
 
   sizes = {s: "small", m: "medium", l: "large"}
 
-  constructor() { }
+  cartItem: CartItem;
+
+  cart$: Observable<any>;
+  cart: Cart;
+
+  constructor(private cartService: CartService) {
+    this.cart$ = this.cartService.cart$.subscribe((cart: Cart) => this.cart = cart);
+  }
 
   ngOnInit(): void {
   }
@@ -51,6 +61,7 @@ export class AddToCartComponent implements OnInit {
 
   addToCart(event: Event) {
     event.preventDefault();
-    console.log({color: this.selectedColor, size: this.selectedSize, quantity: this.quantity});
+    this.cartItem = {id: '1', name: 'name', color: this.selectedColor, size: this.selectedSize, quantity: this.quantity, image: 'src/assets/product-images/vicky-cheng-unsplash.jpg'}
+    this.cartService.addToCart(this.cartItem);
   }
 }
