@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { type } from 'os';
 import {Observable} from 'rxjs';
 import {CartService} from 'src/app/services/cart.service';
+import {CartWidgetService} from 'src/app/services/cart-widget.service';
 import {Cart,CartItem} from 'src/app/Interfaces/cart';
 
 @Component({
@@ -36,7 +37,7 @@ export class AddToCartComponent implements OnInit {
   cart$: Observable<any>;
   cart: Cart;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private cartWidgetService: CartWidgetService) {
     this.cart$ = this.cartService.cart$.subscribe((cart: Cart) => this.cart = cart);
   }
 
@@ -63,5 +64,6 @@ export class AddToCartComponent implements OnInit {
     event.preventDefault();
     this.cartItem = {id: '1', name: 'name', color: this.selectedColor, size: this.selectedSize, quantity: this.quantity, image: 'src/assets/product-images/vicky-cheng-unsplash.jpg'}
     this.cartService.addToCart(this.cartItem);
+    this.cartWidgetService.setShowWidget(true);
   }
 }

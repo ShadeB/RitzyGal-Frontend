@@ -1,16 +1,16 @@
 <div
   class="cart-widget__wrapper"
-  [ngClass]="{ 'cart-widget__wrapper-active': sideWidgetActive }"
+  [ngClass]="{ 'cart-widget__wrapper-active': (sideWidgetActive | async) }"
 >
   <div
     class="cart-widget__overlay"
-    [ngClass]="{ 'cart-widget__overlay-active': sideWidgetActive }"
+    [ngClass]="{ 'cart-widget__overlay-active': (sideWidgetActive | async) }"
     (click)="sideBarClose()"
   ></div>
 
   <div
     class="cart-widget__container"
-    [ngClass]="{ 'cart-widget__container-active': sideWidgetActive }"
+    [ngClass]="{ 'cart-widget__container-active': (sideWidgetActive | async) }"
   >
     <div
       class="cart-widget__header flex__container flex-justify__space-between"
