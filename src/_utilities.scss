@@ -4,6 +4,16 @@
   padding: 0 2rem;
 }
 
+.text {
+  &-capitalize {
+    text-transform: capitalize;
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+}
+
 .text-center {
   text-align: center;
 }
@@ -45,8 +55,16 @@
     align-items: center;
   }
 
+  &-align__end {
+    align-items: flex-end;
+  }
+
   &-direction__row-reverse {
     flex-direction: row-reverse;
+  }
+
+  &-direction__column {
+    flex-direction: column;
   }
 }
 
@@ -58,4 +76,11 @@
   &__space-between {
     justify-content: space-between;
   }
+}
+
+.sr-only {
+  height: 0.1rem;
+  width: 0.1rem;
+  overflow: hidden;
+  position: absolute;
 }

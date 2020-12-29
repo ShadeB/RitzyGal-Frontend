@@ -1,6 +1,6 @@
-@import "../../variables";
-@import "../../mixins";
-@import "../../utilities";
+@import "/src/variables";
+@import "/src/mixins";
+@import "/src/utilities";
 
 .category-list__container {
   margin-bottom: 1rem;
@@ -29,7 +29,7 @@
 
 .hero-image__container {
   position: relative;
-  background-image: url("../../assets/hero__banner.svg");
+  background-image: url("../../../assets/hero__banner.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

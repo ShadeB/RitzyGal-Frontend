@@ -1,0 +1,67 @@
+<div class="add-to-cart__container">
+  <div class="add-to-cart-image__container">
+    <img
+      src="./../../../../assets/product-images/vicky-cheng-unsplash.jpg"
+      alt=""
+    />
+  </div>
+  <div class="flex__container flex-direction__column add-to-cart__content">
+    <h3 class="heading product__name text-capitalize">Black satin top dress</h3>
+    <p class="product__price">{{ 24 | currency: "USD" }}</p>
+
+    <form action="" method="post" (submit)="addToCart($event)">
+      <app-quantity-input
+        (quantityChange)="getQuantityValue($event)"
+      ></app-quantity-input>
+      <fieldset class="fieldset__color">
+        <legend>
+          color: <span>{{ selectedColor }}</span>
+        </legend>
+        <label *ngFor="let color of colors; index as i" for="{{ color.name }}">
+          <input
+            type="radio"
+            name="color"
+            id="{{ color.name }}"
+            value="{{ color.name }}"
+            class="input__color-option"
+            (change)="colorInputChangeHandler($event.target.value, i)"
+            required
+          />
+          <span>{{ color.name }}</span>
+        </label>
+      </fieldset>
+
+      <fieldset class="fieldset__size">
+        <legend>
+          size: <span>{{ selectedSize | uppercase }}</span>
+        </legend>
+        <label
+          *ngFor="let size of sizes | keyvalue: keepObjectOrder"
+          for="{{ size.value }}"
+          class="lbl-input__size-option"
+        >
+          <input
+            type="radio"
+            name="size"
+            id="{{ size.value }}"
+            value="{{ size.key }}"
+            (change)="sizeInputChangeHandler($event.target.value)"
+            required
+          /><span>{{ size.key | uppercase }}</span></label
+        >
+      </fieldset>
+
+      <button type="submit" class="btn-add__to-cart text-center text-uppercase">
+        Add to cart
+      </button>
+    </form>
+
+    <div
+      class="subtotal__container flex__container flex-justify__space-between flex-align__end"
+    >
+      <h5 class="subtotal__label">Subtotal</h5>
+      <p class="subtotal__value">{{ 249.99 | currency: "USD" }}</p>
+    </div>
+  </div>
+</div>
+<app-cart-side-widget></app-cart-side-widget>

@@ -1,0 +1,55 @@
+<div id="quantity-input__container" class="quantity-input__container">
+  <div class="quantity-button__container">
+    <button
+      type="button"
+      class="quantity-input__button quantity-input__decrement"
+      (click)="quantityDecrement()"
+    >
+      <svg
+        viewBox="0 0 15 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        focusable="false"
+        aria-hidden="true"
+        tabindex="0"
+      >
+        <path
+          d="M15.2222 0.88884V4.11111H0.777779V0.88884H15.2222Z"
+          class="path"
+        />
+      </svg>
+      <span class="sr-only">Decrement product quantity</span>
+    </button>
+  </div>
+  <label for="quantity-input" class="sr-only">Pick a number of items</label>
+  <input
+    type="number"
+    min="1"
+    max="10"
+    step="1"
+    value="1"
+    id="quantity-input"
+    class="quantity-input__field"
+    (input)="handleInputChange($event.target.value)"
+  />
+  <div class="quantity-button__container">
+    <button
+      type="button"
+      class="quantity-input__button quantity-input__increment"
+      (click)="quantityIncrement()"
+    >
+      <svg
+        focusable="false"
+        viewBox="0 0 25 30"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        tabindex="0"
+      >
+        <path d="M4.68 14.5H21.32" stroke-width="3" class="path" />
+        <path d="M13 5.22V23.78" stroke-width="3" class="path" />
+      </svg>
+      <span class="sr-only">Increment product quantity</span>
+    </button>
+  </div>
+</div>

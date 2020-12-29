@@ -18,7 +18,8 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "graphql-tag"
+              "graphql-tag",
+              "zen-observable"
             ],
             "outputPath": "dist/ritzygal-frontend",
             "index": "src/index.html",

@@ -1,0 +1,216 @@
+@import "/src/utilities";
+@import "/src/mixins";
+@import "/src/variables";
+
+:root {
+  --bg-color-picked: #000;
+}
+
+.add-to-cart {
+  &__container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+
+    @include PC() {
+      padding: 4rem 2rem;
+    }
+    p {
+      font-size: 2rem;
+      font-weight: font-weights(regular);
+    }
+
+    fieldset {
+      padding: 1.8rem 0;
+
+      @include tablet() {
+        margin-bottom: 1.8rem;
+      }
+
+      legend {
+        font-weight: font-weights(bold);
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+
+        @include tablet() {
+          font-size: 2.3rem;
+        }
+
+        span {
+          font-weight: font-weights(regular);
+          margin-left: 0.4rem;
+
+          @include tablet() {
+            font-size: 2rem;
+          }
+        }
+      }
+
+      label {
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &.input {
+          &__color-option {
+            + span {
+              font-size: 0;
+              margin-right: 0.4rem;
+            }
+
+            + span::before {
+              content: "";
+              display: inline-block;
+              width: 2rem;
+              height: 2rem;
+              transform: translateY(0.5rem);
+              border: 0.15rem solid $white;
+              box-shadow: 0 0 0 0.1rem $grey;
+              border-radius: 50%;
+              margin-right: 0.75rem;
+              transition: 0.5s ease all;
+
+              @include tablet() {
+                width: 2.5rem;
+                height: 2.5rem;
+                margin-right: 1.5rem;
+                border: 0.2rem solid $white;
+              }
+            }
+
+            &:checked {
+              + span::before {
+                background-color: var(--bg-color-picked);
+                box-shadow: 0 0 0 0.2rem $grey;
+              }
+            }
+          }
+        }
+
+        &:focus {
+          + span::before {
+            box-shadow: 0 0 0 0.2rem $grey;
+          }
+        }
+      }
+
+      .lbl-input {
+        &__size-option {
+          span {
+            display: inline-block;
+            border: 0.15rem solid $white;
+            box-shadow: 0 0 0 0.1rem $grey;
+            width: 2.5rem;
+            height: 2.5rem;
+            text-align: center;
+            margin-right: 1rem;
+
+            @include tablet() {
+              border: 0.45rem solid $white;
+              width: 3.5rem;
+              height: 3.5rem;
+              margin-right: 1.6rem;
+              box-shadow: 0 0 0 0.2rem $grey;
+            }
+          }
+
+          > input {
+            &:checked {
+              + span {
+                box-shadow: 0 0 0 0.2rem $grey;
+                @include tablet() {
+                  box-shadow: 0 0 0 0.3rem $grey;
+                }
+              }
+            }
+
+            &:focus {
+              + span {
+                box-shadow: 0 0 0 0.2rem $grey;
+                @include tablet() {
+                  box-shadow: 0 0 0 0.3rem $grey;
+                }
+              }
+            }
+
+            &:hover {
+              + span {
+                box-shadow: 0 0 0 0.3rem $grey;
+                @include tablet() {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-image__container {
+    padding: 1.6rem;
+  }
+
+  &__content {
+    padding: 1.6rem;
+
+    @include tablet() {
+      padding: 5rem 2rem;
+    }
+
+    .product {
+      &__name {
+        @include tablet() {
+          font-size: 3rem;
+        }
+      }
+
+      &__price {
+        margin: 1.2rem 0;
+        @include tablet() {
+          font-size: 2.3rem;
+        }
+      }
+    }
+
+    .btn-add__to-cart {
+      color: $white;
+      background-color: $pink;
+      font-weight: font-weights(bold);
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      padding: 1.4rem;
+      margin: 1.5rem 0rem;
+      width: 100%;
+
+      @include tablet() {
+        font-size: 2rem;
+        padding: 2.2rem;
+        margin: 3rem 0;
+      }
+    }
+
+    > .subtotal {
+      &__container {
+        margin-top: 2rem;
+
+        .subtotal {
+          &__label {
+            @include tablet() {
+              font-size: 2.5rem;
+            }
+          }
+
+          &__value {
+            @include tablet() {
+              font-size: 2.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
