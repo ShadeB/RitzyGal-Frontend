@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { AllProductsQuery } from '../graphql/queries/allProductsQuery';
-import { Product } from '../Interfaces/product';
+import { AllProductsQuery } from '../../graphql/queries/allProductsQuery';
+import { Product } from '../../Interfaces/product';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
