@@ -62,7 +62,7 @@ export class AddToCartComponent implements OnInit {
 
   addToCart(event: Event) {
     event.preventDefault();
-    this.cartItem = {id: '1', name: 'name', color: this.selectedColor, size: this.selectedSize, quantity: this.quantity, image: 'src/assets/product-images/vicky-cheng-unsplash.jpg'}
+    this.cartItem = {id: '1', name: 'name', color: this.selectedColor, size: this.selectedSize, quantity: this.quantity, image: 'src/assets/product-images/vicky-cheng-unsplash.jpg', price: 25}
     this.cartService.addToCart(this.cartItem);
     this.cartWidgetService.setShowWidget(true);
   }

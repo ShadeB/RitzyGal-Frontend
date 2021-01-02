@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Observable} from 'rxjs';
+import {CartService} from 'src/app/services/cart.service';
 import {CartWidgetService} from 'src/app/services/cart-widget.service';
+
+import {CartItem} from 'src/app/Interfaces/cart';
 
 
 @Component({
@@ -11,6 +14,7 @@ import {CartWidgetService} from 'src/app/services/cart-widget.service';
 export class CartSideWidgetComponent implements OnInit {
 
   sideWidgetActive: Observable<boolean>;
+  cartItem: CartItem;
   cartTotal: number = 0;
 
   cartItems = [
@@ -22,11 +26,13 @@ export class CartSideWidgetComponent implements OnInit {
     {id: 6, name: 'dress',image: "../../../assets/product-images/vicky-cheng-unsplash.jpg", quantity: 7, price: 120},
   ]
 
-  constructor(private cartWidgetService: CartWidgetService) { }
+  constructor(private cartWidgetService: CartWidgetService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.sideWidgetActive = this.cartWidgetService.getShowWidget();
-    this.getCartTotal();
+    this.cartService.onCartChange().subscribe( () => {
+      this.getCartTotal();
+    })
   }
 
   sideBarClose() {
@@ -34,9 +40,6 @@ export class CartSideWidgetComponent implements OnInit {
   }
 
   getCartTotal() {
-    this.cartItems.forEach(item => {
-      this.cartTotal += (item.price * item.quantity);
-    })
+    this.cartTotal = this.cartService.getCartTotal();
   }
-
 }
