@@ -22,7 +22,7 @@ export class CartSideWidgetComponent implements OnInit {
 
   ngOnInit(): void {
     this.sideWidgetActive = this.cartWidgetService.getShowWidget();
-    this.cartService.onCartChange().subscribe( (cart) => {
+    this.cartService.onCartChange().subscribe( (cart: CartItem[]) => {
       this.getCartTotal();
       this.cart = cart;
     })

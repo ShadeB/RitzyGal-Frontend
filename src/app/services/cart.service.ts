@@ -8,7 +8,7 @@ import {Cart, CartItem} from 'src/app/Interfaces/cart';
 
 export class CartService {
   cartItem: CartItem;
-  cart: any = [];
+  cart: CartItem[];
   cartTotal: number = 0;
   cart$;
 
