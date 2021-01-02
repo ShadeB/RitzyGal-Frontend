@@ -8,7 +8,7 @@ import {Cart, CartItem} from 'src/app/Interfaces/cart';
 
 export class CartService {
   cartItem: CartItem;
-  cart: CartItem[];
+  cart: CartItem[] = [];
   cartTotal: number = 0;
   cart$;
 
@@ -30,7 +30,6 @@ export class CartService {
     if(!productInCart) {
       this.cart.push(cartItem);
     }
-
     this.cart$.next(this.cart);
    }
 
