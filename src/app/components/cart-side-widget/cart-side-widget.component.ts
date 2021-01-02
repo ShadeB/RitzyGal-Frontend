@@ -15,23 +15,16 @@ export class CartSideWidgetComponent implements OnInit {
 
   sideWidgetActive: Observable<boolean>;
   cartItem: CartItem;
+  cart: CartItem[];
   cartTotal: number = 0;
-
-  cartItems = [
-    {id: 1, name: 'dress', image: "../../../assets/product-images/vicky-cheng-unsplash.jpg", quantity: 3, price: 30},
-    {id: 2, name: 'dress',image: "../../../assets/product-images/vicky-cheng-unsplash.jpg", quantity: 5, price: 7},
-    {id: 3, name: 'dress',image: "../../../assets/product-images/vicky-cheng-unsplash.jpg", quantity: 2, price:8},
-    {id: 4, name: 'dress',image: "../../../assets/product-images/vicky-cheng-unsplash.jpg", quantity: 4, price: 12},
-    {id: 5, name: 'dress',image: "../../../assets/product-images/vicky-cheng-unsplash.jpg", quantity: 12, price: 18},
-    {id: 6, name: 'dress',image: "../../../assets/product-images/vicky-cheng-unsplash.jpg", quantity: 7, price: 120},
-  ]
 
   constructor(private cartWidgetService: CartWidgetService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.sideWidgetActive = this.cartWidgetService.getShowWidget();
-    this.cartService.onCartChange().subscribe( () => {
+    this.cartService.onCartChange().subscribe( (cart) => {
       this.getCartTotal();
+      this.cart = cart;
     })
   }
 
