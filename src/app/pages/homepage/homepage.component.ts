@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import { AllProductsQuery } from '../../graphql/queries/allProductsQuery';
+
 import { Product } from '../../Interfaces/product';
+
+import { ProductService } from 'src/app/services/product.service';
+
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -10,21 +12,26 @@ import { Product } from '../../Interfaces/product';
 export class HomepageComponent implements OnInit {
   products: Product[];
   loading: boolean = true;
-  errors: any;
+  errors: {};
 
-  constructor(private apollo: Apollo) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.apollo
-      .query<any>({
-        query: AllProductsQuery
-      })
+    this.getProducts();
+  }
+
+  getProducts(): void {
+    this.productService.getProduct()
       .subscribe(
-        ({ data, error, loading }) => {
-          this.products = data.listAllProducts;
-          this.loading = loading;
-          this.errors = error;
-        })
+        (result) => {
+          if (!result.data) {
+            this.errors = {...result};
+            this.loading = false;
+          } else {
+            this.products = result.data.listAllProducts;
+            this.loading = result.loading
+          }
+      });
   }
 
 }
