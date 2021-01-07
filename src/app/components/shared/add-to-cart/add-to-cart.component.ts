@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { type } from 'os';
+import { Component, OnInit,Input } from '@angular/core';
 import {Observable} from 'rxjs';
+
 import {CartService} from 'src/app/services/cart.service';
 import {CartWidgetService} from 'src/app/services/cart-widget.service';
 import {Cart,CartItem} from 'src/app/Interfaces/cart';
+import {Color, Product} from 'src/app/Interfaces/product';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -11,29 +12,16 @@ import {Cart,CartItem} from 'src/app/Interfaces/cart';
   styleUrls: ['./add-to-cart.component.scss']
 })
 export class AddToCartComponent implements OnInit {
+  @Input() product: Product;
   quantity: number = 1;
   selectedColor: string = '';
   selectedSize: number;
   colorHexValue: string = '';
-  colors = [
-    { name: 'red',
-      Hex: '#ff0000',
-    },
-    {
-      name: 'blue',
-      Hex: '#0000ff',
-    },
-    {
-      name: "black",
-      Hex: '#000',
-    },
-
-  ];
+  colors: [Color];
 
   sizes = {s: "small", m: "medium", l: "large"}
 
   cartItem: CartItem;
-
   cart$: Observable<any>;
   cart: Cart;
 
@@ -42,6 +30,11 @@ export class AddToCartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setColorOptions();
+  }
+
+  setColorOptions(): void{
+    this.colors = this.product.colors;
   }
 
   colorInputChangeHandler(value: string, index: any) {
@@ -60,9 +53,14 @@ export class AddToCartComponent implements OnInit {
     this.quantity = value;
   }
 
+  setCartItem(): void {
+    let cartItem = {id: this.product._id, name: this.product.name, color: this.selectedColor, size: this.selectedSize, quantity: this.quantity, image: this.product.image, price: this.product.price};
+    this.cartItem = cartItem;
+  }
+
   addToCart(event: Event) {
     event.preventDefault();
-    this.cartItem = {id: '1', name: 'name', color: this.selectedColor, size: this.selectedSize, quantity: this.quantity, image: 'src/assets/product-images/vicky-cheng-unsplash.jpg'}
+    this.setCartItem();
     this.cartService.addToCart(this.cartItem);
     this.cartWidgetService.setShowWidget(true);
   }

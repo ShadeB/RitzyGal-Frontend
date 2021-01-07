@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductByIdService } from 'src/app/services/product-by-id.service';
 
 @Component({
   selector: 'app-product-card',
@@ -33,7 +34,7 @@ export class ProductCardComponent implements OnInit {
     this.removeFromLocalStorage();
     this.addToLocalStorage(this.product._id);
 
-    this.router.navigate(['/add-to-cart'])
+    this.router.navigate(['/add-to-cart', this.product._id])
   }
 
 }

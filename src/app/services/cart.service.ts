@@ -8,7 +8,8 @@ import {Cart, CartItem} from 'src/app/Interfaces/cart';
 
 export class CartService {
   cartItem: CartItem;
-  cart: any = [];
+  cart: CartItem[] = [];
+  cartTotal: number = 0;
   cart$;
 
   constructor() {
@@ -29,8 +30,20 @@ export class CartService {
     if(!productInCart) {
       this.cart.push(cartItem);
     }
-
     this.cart$.next(this.cart);
+   }
+
+   onCartChange() {
+    return this.cart$.asObservable();
+   }
+
+   getCartTotal() {
+    let total = 0;
+    this.cart.forEach((item: CartItem) => {
+      total += (item.price * item.quantity);
+    })
+    this.cartTotal = total;
+    return this.cartTotal;
    }
 
    emptyCart() {

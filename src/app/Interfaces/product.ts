@@ -1,3 +1,7 @@
+export interface Color {
+  Hex: string, name: string
+}
+
 export interface Product {
   _id: string;
   name: string;
@@ -9,5 +13,5 @@ export interface Product {
   brand: [string];
   instock: boolean;
   rating: number
-  colors:  {Hex: string, name: string}
+  colors: [Color];
 }
