@@ -1,45 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import {catchError} from 'rxjs/operators';
+import { Apollo } from 'apollo-angular';
+
+import {AllProductsQuery} from 'src/app/graphql/queries/allProductsQuery';
+import { ApolloQueryResult } from '@apollo/client/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private readonly URL = 'https://cors-anywhere.herokuapp.com/localhost:5000/graphql'
+  constructor(private apollo: Apollo) { }
 
-  constructor(private http:HttpClient) { }
-
-  public query = `
-  query {
-    listAllProducts {
-      _id
-      name
-      description
-      category
-      price
-      sizes
-      image
-      brand
-      instock
-      rating
-      colors {
-        Hex
-        name
-      }
-    }
-  }
-  `
-
-  resolveData():  Observable<any> {
-    const headers = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-
-    return this.http.post(this.URL,this.query,headers
-     )
+  getProduct():  Observable<ApolloQueryResult<any>> {
+    return this.apollo.query<AllProductsQuery>({
+      query: AllProductsQuery
+    }).pipe(
+      catchError(err => of(err))
+    );
   }
 }
