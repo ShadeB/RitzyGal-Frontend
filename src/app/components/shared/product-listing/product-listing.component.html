@@ -1,7 +1,9 @@
 <div class="layout product__listing">
   <div class="product-card__container">
     <ng-container *ngIf="errors">
-      <div>Connection failure: please check your internet connection</div>
+      <div>
+        Connection failure: <span>please check your internet connection</span>
+      </div>
     </ng-container>
     <ng-container *ngIf="loading">
       <div>Loading...</div>
