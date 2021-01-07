@@ -1,7 +1,7 @@
-@import "/src/variables";
-@import "/src/typography";
-@import "/src/mixins";
-@import "/src/utilities";
+@import "/src/partials/variables";
+@import "/src/partials/typography";
+@import "/src/partials/mixins";
+@import "/src/partials/utilities";
 
 .cart-widget {
   &__wrapper {

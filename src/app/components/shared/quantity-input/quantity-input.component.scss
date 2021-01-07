@@ -1,6 +1,6 @@
-@import "../../../../resets";
-@import "../../../../variables";
-@import "../../../../utilities";
+@import "/src/partials/resets";
+@import "/src/partials/variables";
+@import "/src/partials/utilities";
 
 input[type="number"] {
   -moz-appearance: textfield;
