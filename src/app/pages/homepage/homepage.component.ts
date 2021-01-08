@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.productService.getProduct()
+    this.productService.getProducts()
       .subscribe(
         (result) => {
           if (!result.data) {

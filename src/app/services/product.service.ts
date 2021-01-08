@@ -13,7 +13,7 @@ export class ProductService {
 
   constructor(private apollo: Apollo) { }
 
-  getProduct():  Observable<ApolloQueryResult<any>> {
+  getProducts():  Observable<ApolloQueryResult<any>> {
     return this.apollo.query<AllProductsQuery>({
       query: AllProductsQuery
     }).pipe(
