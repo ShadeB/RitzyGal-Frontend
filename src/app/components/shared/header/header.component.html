@@ -1,45 +1,98 @@
-<header id="header">
-  <nav
-    class="container flex__container flex-justify__space-between"
-    id="navbar"
-  >
-    <button class="nav-button display-none-md">
-      <span></span>
-    </button>
-    <a href="#" id="logo" class="display-sm-none">Logo</a>
-    <div class="user-actions__container">
-      <ul class="flex__container">
-        <li
-          class="flex__container flex-align__center flex-direction__row-reverse"
+<header class="p-4 bg-purple-900 mb-12 text-white">
+  <div class="max-w-screen-lg lg:m-auto">
+    <nav class="container flex justify-between items-center mb-8">
+      <button
+        class="md:hidden text-2xl p-2 text-gray-100 rounded-lg hover:text-gray-900 hover:bg-indigo-300 outline-none focus:ring"
+      >
+        <span class="sr-only">Menu button</span>
+        <svg
+          class="w-10 h-10 fill-current"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
         >
-          Cart
-          <img
-            src="../../assets/shopping-cart__image.svg"
-            alt="shopping cart image"
-          />
-        </li>
-        <li class="flex__container flex-align__center">
-          Sign in
-          <img src="../../assets/user-logo__image.svg" alt="user logo image" />
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <form class="search-bar__container">
-    <label id="search-bar__input-label" for="search" class="screen-reader-only"
-      >search for an item:</label
-    >
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <a href="#" id="logo" class="hidden md:block">
+        <span class="font-bold text-3xl">RitzyGal</span>
+      </a>
+      <div>
+        <ul class="flex">
+          <li>
+            <a
+              href="#"
+              class="group flex items-end px-2 md:px-6 py-2 mr-3 text-gray-100 rounded-lg hover:text-gray-900 hover:bg-indigo-300 outline-none focus:ring"
+            >
+              Cart
+              <svg
+                class="w-6 h-6 ml-2 fill-current text-secondary-color group-hover:text-gray-900"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 16C4.9 16 4.01 16.9 4.01 18C4.01 19.1 4.9 20 6 20C7.1 20 8 19.1 8 18C8 16.9 7.1 16 6 16ZM0 0V2H2L5.6 9.59L4.25 12.04C4.09 12.32 4 12.65 4 13C4 14.1 4.9 15 6 15H18V13H6.42C6.28 13 6.17 12.89 6.17 12.75L6.2 12.63L7.1 11H14.55C15.3 11 15.96 10.59 16.3 9.97L19.88 3.48C19.96 3.34 20 3.17 20 3C20 2.45 19.55 2 19 2H4.21L3.27 0H0ZM16 16C14.9 16 14.01 16.9 14.01 18C14.01 19.1 14.9 20 16 20C17.1 20 18 19.1 18 18C18 16.9 17.1 16 16 16Z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-end px-2 md:px-6 py-2 capitalize text-gray-100 rounded-lg hover:text-gray-900 hover:bg-indigo-300 outline-none focus:ring"
+            >
+              Sign in
+              <svg
+                class="w-6 h-6 ml-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="9.5" cy="9.5" r="9" stroke="white" />
+                <path
+                  d="M9.5 4.30625C10.2975 4.30625 10.9438 4.9525 10.9438 5.75C10.9438 6.5475 10.2975 7.19375 9.5 7.19375C8.7025 7.19375 8.05625 6.5475 8.05625 5.75C8.05625 4.9525 8.7025 4.30625 9.5 4.30625ZM9.5 10.4937C11.5419 10.4937 13.6938 11.4975 13.6938 11.9375V12.6938H5.30625V11.9375C5.30625 11.4975 7.45812 10.4937 9.5 10.4937ZM9.5 3C7.98062 3 6.75 4.23062 6.75 5.75C6.75 7.26937 7.98062 8.5 9.5 8.5C11.0194 8.5 12.25 7.26937 12.25 5.75C12.25 4.23062 11.0194 3 9.5 3ZM9.5 9.1875C7.66437 9.1875 4 10.1087 4 11.9375V14H15V11.9375C15 10.1087 11.3356 9.1875 9.5 9.1875Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <form
+    class="relative -mb-10 mt-4 w-full md:max-w-lg md:mx-auto text-gray-600"
+  >
+    <label for="search" class="sr-only">search for an item:</label>
     <input
+      class="bg-purple-100 text-gray-800 border rounded-lg py-2 px-4 pl-10 shadow-md outline-none focus:ring w-full"
       type="search"
       id="search"
       name="search"
-      class="search-bar__input"
       placeholder="Press enter to search..."
       aria-label="Search for an item"
       required
     />
-    <button class="search-bar__icon" type="submit">
-      <img src="../../assets/search-bar__icon.svg" alt="search icon" />
+    <button
+      class="absolute inset-y-0 left-0 flex items-end ml-2"
+      type="submit"
+      tabindex="-1"
+    >
+      <span class="sr-only">search</span>
+      <svg
+        class="fill-current w-8 h-8"
+        tabindex="-1"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z"
+          fill="#000"
+          fill-opacity="0.6"
+        />
+      </svg>
     </button>
   </form>
 </header>
