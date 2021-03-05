@@ -1,13 +1,13 @@
-<div id="quantity-input__container" class="quantity-input__container">
-  <div class="quantity-button__container">
+<div id="quantity-input__container" class="quantity-input__container flex my-6">
+  <div class="flex">
     <button
       type="button"
-      class="quantity-input__button quantity-input__decrement"
+      class="quantity-input__decrement text-gray-800 hover:bg-secondary-color hover:text-white p-4 px-4 border border-solid border-gray-700 border-r-0 rounded-r-none rounded-l-3xl"
       (click)="quantityDecrement()"
     >
       <svg
-        viewBox="0 0 15 15"
-        fill="none"
+        class="border-none outline-none w-4 h-2 fill-current"
+        viewBox="0 0 15 10"
         xmlns="http://www.w3.org/2000/svg"
         focusable="false"
         aria-hidden="true"
@@ -29,19 +29,19 @@
     step="1"
     value="1"
     id="quantity-input"
-    class="quantity-input__field"
+    class="quantity-input__field py-2 px-6 border border-solid border-gray-700 border-r-0 text-center number-input"
     (input)="handleInputChange($event.target.value)"
   />
-  <div class="quantity-button__container">
+  <div>
     <button
       type="button"
-      class="quantity-input__button quantity-input__increment"
+      class="p-4 text-gray-800 hover:text-white hover:bg-secondary-color border border-solid border-gray-700 rounded-r-3xl"
       (click)="quantityIncrement()"
     >
       <svg
+        class="border-none outline-none h-6 w-6 fill-current stroke-current"
         focusable="false"
         viewBox="0 0 25 30"
-        fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         tabindex="0"
