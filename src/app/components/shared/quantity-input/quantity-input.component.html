@@ -2,7 +2,7 @@
   <div class="flex">
     <button
       type="button"
-      class="quantity-input__decrement text-gray-800 hover:bg-secondary-color hover:text-white p-4 px-4 border border-solid border-gray-700 border-r-0 rounded-r-none rounded-l-3xl"
+      class="quantity-input__decrement text-gray-800 hover:bg-secondary-color hover:text-white p-4 px-4 focus:ring focus:outline-none border border-solid border-gray-700 border-r-0 rounded-r-none rounded-l-3xl"
       (click)="quantityDecrement()"
     >
       <svg
@@ -11,7 +11,7 @@
         xmlns="http://www.w3.org/2000/svg"
         focusable="false"
         aria-hidden="true"
-        tabindex="0"
+        tabindex="-1"
       >
         <path
           d="M15.2222 0.88884V4.11111H0.777779V0.88884H15.2222Z"
@@ -29,13 +29,13 @@
     step="1"
     value="1"
     id="quantity-input"
-    class="quantity-input__field py-2 px-6 border border-solid border-gray-700 border-r-0 text-center number-input"
+    class="quantity-input__field py-2 px-6 border border-solid border-gray-700 outline-none focus:ring border-r-0 text-center number-input"
     (input)="handleInputChange($event.target.value)"
   />
   <div>
     <button
       type="button"
-      class="p-4 text-gray-800 hover:text-white hover:bg-secondary-color border border-solid border-gray-700 rounded-r-3xl"
+      class="p-4 text-gray-800 hover:text-white hover:bg-secondary-color focus:ring focus:outline-none border border-solid border-gray-700 rounded-r-3xl"
       (click)="quantityIncrement()"
     >
       <svg
@@ -44,7 +44,7 @@
         viewBox="0 0 25 30"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
-        tabindex="0"
+        tabindex="-1"
       >
         <path d="M4.68 14.5H21.32" stroke-width="3" class="path" />
         <path d="M13 5.22V23.78" stroke-width="3" class="path" />
