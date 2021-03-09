@@ -57,6 +57,13 @@ const nextOnCheckedBefore = plugin(({addVariant, e}) => {
   });
 })
 
+const firstOfType = plugin(({addVariant, e}) => {
+  addVariant('first-type', ({modifySelectors, separator}) => {
+    modifySelectors(({className}) => {
+      return `.${e(`first-type${separator}${className}`)}:first-of-type`;
+    });
+  });
+})
 
 
 const contentUtilities = {
@@ -89,7 +96,7 @@ module.exports = {
       borderWidth: ['before'],
       height: ['before'],
       width: ['before'],
-      margin: ['before'],
+      margin: ['before', 'first-type'],
       opacity: ['next-on-hover', 'next-on-focus', 'next-on-checked'],
       ringWidth: ['before', 'next-on-hover', 'next-on-hover-before', 'next-on-focus', 'next-on-focus-before', 'next-on-checked', 'next-on-checked-before'],
       ringOpacity: ['before', 'next-on-hover','next-on-focus', 'next-on-checked'],
@@ -104,6 +111,7 @@ module.exports = {
     nextOnFocusBefore,
     nextOnChecked,
     nextOnCheckedBefore,
+    firstOfType,
     plugin(({addUtilities}) => {
       addUtilities(contentUtilities, ['before'])
     })
