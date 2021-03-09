@@ -1,4 +1,69 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
+
+const before = plugin(({addVariant, e}) => {
+  addVariant('before', ({modifySelectors, separator}) => {
+    modifySelectors(({className}) => {
+      return `.${e(`before${separator}${className}`)}::before`;
+    });
+  });
+})
+
+const nextOnHover = plugin(({addVariant, e}) => {
+  addVariant('next-on-hover', ({modifySelectors, separator}) => {
+    modifySelectors(({className}) => {
+      return `.${e(`next-on-hover${separator}${className}`)}:hover + *`;
+    });
+  });
+})
+
+const nextOnHoverBefore = plugin(({addVariant, e}) => {
+  addVariant('next-on-hover-before', ({modifySelectors, separator}) => {
+    modifySelectors(({className}) => {
+      return `.${e(`next-on-hover-before${separator}${className}`)}:hover + *::before`;
+    });
+  });
+})
+
+const nextOnFocus = plugin(({addVariant, e}) => {
+  addVariant('next-on-focus', ({modifySelectors, separator}) => {
+    modifySelectors(({className}) => {
+      return `.${e(`next-on-focus${separator}${className}`)}:focus + *`;
+    });
+  });
+})
+
+const nextOnFocusBefore = plugin(({addVariant, e}) => {
+  addVariant('next-on-focus-before', ({modifySelectors, separator}) => {
+    modifySelectors(({className}) => {
+      return `.${e(`next-on-focus-before${separator}${className}`)}:focus + *::before`;
+    });
+  });
+})
+
+const nextOnChecked = plugin(({addVariant, e}) => {
+  addVariant('next-on-checked', ({modifySelectors, separator}) => {
+    modifySelectors(({className}) => {
+      return `.${e(`next-on-checked${separator}${className}`)}:checked + *`;
+    });
+  });
+})
+
+const nextOnCheckedBefore = plugin(({addVariant, e}) => {
+  addVariant('next-on-checked-before', ({modifySelectors, separator}) => {
+    modifySelectors(({className}) => {
+      return `.${e(`next-on-checked-before${separator}${className}`)}:checked + *::before`;
+    });
+  });
+})
+
+
+
+const contentUtilities = {
+  '.content': {
+    content: 'attr(data-content)',
+  }
+}
 
 module.exports = {
   purge: [],
@@ -15,7 +80,32 @@ module.exports = {
   },
   variants: {
     scale: ['responsive', 'hover', 'focus', 'group-hover'],
-    extend: {},
+    extend: {
+      display: ['before'],
+      backgroundColor: ['next-on-hover', 'next-on-focus', 'next-on-checked'],
+      borderColor: ['before'],
+      borderRadius: ['before'],
+      borderStyle: ['before'],
+      borderWidth: ['before'],
+      height: ['before'],
+      width: ['before'],
+      margin: ['before'],
+      opacity: ['next-on-hover', 'next-on-focus', 'next-on-checked'],
+      ringWidth: ['before', 'next-on-hover', 'next-on-hover-before', 'next-on-focus', 'next-on-focus-before', 'next-on-checked', 'next-on-checked-before'],
+      ringOpacity: ['before', 'next-on-hover','next-on-focus', 'next-on-checked'],
+      ringColor: ['before', 'next-on-hover', 'next-on-hover-before','next-on-focus', 'next-on-focus-before',  'next-on-checked'],
+    },
   },
-  plugins: [],
+  plugins: [
+    before,
+    nextOnHover,
+    nextOnHoverBefore,
+    nextOnFocus,
+    nextOnFocusBefore,
+    nextOnChecked,
+    nextOnCheckedBefore,
+    plugin(({addUtilities}) => {
+      addUtilities(contentUtilities, ['before'])
+    })
+  ],
 }
