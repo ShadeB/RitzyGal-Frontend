@@ -87,6 +87,8 @@ module.exports = {
   },
   variants: {
     scale: ['responsive', 'hover', 'focus', 'group-hover'],
+    ringWidth: ['responsive', 'hover', 'focus', 'group-hover'],
+    ringColor: ['responsive', 'hover', 'focus', 'group-hover'],
     extend: {
       display: ['before'],
       backgroundColor: ['next-on-hover', 'next-on-focus', 'next-on-checked'],
