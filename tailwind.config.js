@@ -9,22 +9,6 @@ const before = plugin(({addVariant, e}) => {
   });
 })
 
-const nextOnHover = plugin(({addVariant, e}) => {
-  addVariant('next-on-hover', ({modifySelectors, separator}) => {
-    modifySelectors(({className}) => {
-      return `.${e(`next-on-hover${separator}${className}`)}:hover + *`;
-    });
-  });
-})
-
-const nextOnHoverBefore = plugin(({addVariant, e}) => {
-  addVariant('next-on-hover-before', ({modifySelectors, separator}) => {
-    modifySelectors(({className}) => {
-      return `.${e(`next-on-hover-before${separator}${className}`)}:hover + *::before`;
-    });
-  });
-})
-
 const nextOnFocus = plugin(({addVariant, e}) => {
   addVariant('next-on-focus', ({modifySelectors, separator}) => {
     modifySelectors(({className}) => {
@@ -91,7 +75,7 @@ module.exports = {
     ringColor: ['responsive', 'hover', 'focus', 'group-hover'],
     extend: {
       display: ['before'],
-      backgroundColor: ['next-on-hover', 'next-on-focus', 'next-on-checked'],
+      backgroundColor: ['next-on-focus', 'next-on-checked'],
       borderColor: ['before'],
       borderRadius: ['before'],
       borderStyle: ['before'],
@@ -99,16 +83,14 @@ module.exports = {
       height: ['before'],
       width: ['before'],
       margin: ['before', 'first-type'],
-      opacity: ['next-on-hover', 'next-on-focus', 'next-on-checked'],
-      ringWidth: ['before', 'next-on-hover', 'next-on-hover-before', 'next-on-focus', 'next-on-focus-before', 'next-on-checked', 'next-on-checked-before'],
-      ringOpacity: ['before', 'next-on-hover','next-on-focus', 'next-on-checked'],
-      ringColor: ['before', 'next-on-hover', 'next-on-hover-before','next-on-focus', 'next-on-focus-before',  'next-on-checked'],
+      opacity: [ 'next-on-focus', 'next-on-checked'],
+      ringWidth: ['before', 'next-on-focus', 'next-on-focus-before', 'next-on-checked', 'next-on-checked-before'],
+      ringOpacity: ['before', 'next-on-focus', 'next-on-checked'],
+      ringColor: ['before', 'next-on-focus', 'next-on-focus-before',  'next-on-checked'],
     },
   },
   plugins: [
     before,
-    nextOnHover,
-    nextOnHoverBefore,
     nextOnFocus,
     nextOnFocusBefore,
     nextOnChecked,
