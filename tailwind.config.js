@@ -17,26 +17,10 @@ const nextOnFocus = plugin(({addVariant, e}) => {
   });
 })
 
-const nextOnFocusBefore = plugin(({addVariant, e}) => {
-  addVariant('next-on-focus-before', ({modifySelectors, separator}) => {
-    modifySelectors(({className}) => {
-      return `.${e(`next-on-focus-before${separator}${className}`)}:focus + *::before`;
-    });
-  });
-})
-
 const nextOnChecked = plugin(({addVariant, e}) => {
   addVariant('next-on-checked', ({modifySelectors, separator}) => {
     modifySelectors(({className}) => {
       return `.${e(`next-on-checked${separator}${className}`)}:checked + *`;
-    });
-  });
-})
-
-const nextOnCheckedBefore = plugin(({addVariant, e}) => {
-  addVariant('next-on-checked-before', ({modifySelectors, separator}) => {
-    modifySelectors(({className}) => {
-      return `.${e(`next-on-checked-before${separator}${className}`)}:checked + *::before`;
     });
   });
 })
@@ -84,17 +68,15 @@ module.exports = {
       width: ['before'],
       margin: ['before', 'first-type'],
       opacity: [ 'next-on-focus', 'next-on-checked'],
-      ringWidth: ['before', 'next-on-focus', 'next-on-focus-before', 'next-on-checked', 'next-on-checked-before'],
+      ringWidth: ['before', 'next-on-focus', 'next-on-checked'],
       ringOpacity: ['before', 'next-on-focus', 'next-on-checked'],
-      ringColor: ['before', 'next-on-focus', 'next-on-focus-before',  'next-on-checked'],
+      ringColor: ['before', 'next-on-focus', 'next-on-checked'],
     },
   },
   plugins: [
     before,
     nextOnFocus,
-    nextOnFocusBefore,
     nextOnChecked,
-    nextOnCheckedBefore,
     firstOfType,
     plugin(({addUtilities}) => {
       addUtilities(contentUtilities, ['before'])
