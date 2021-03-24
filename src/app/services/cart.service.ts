@@ -51,4 +51,13 @@ export class CartService {
      this.cart$.next(this.cart);
    }
 
+   updateItemQuantity(quantity: number, itemId: string) {
+    for (let i in this.cart) {
+      if(this.cart[i].id === itemId) {
+        this.cart[i].quantity = quantity;
+        break;
+      }
+    }
+   }
+
 }
