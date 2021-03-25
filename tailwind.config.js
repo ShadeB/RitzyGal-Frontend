@@ -51,6 +51,18 @@ module.exports = {
       fontFamily: {
         serif: ['Neuton', ...defaultTheme.fontFamily.serif],
       },
+      fill: {
+        current: 'currentColor',
+      },
+      fill: theme => ({
+        'secondary-color': theme('colors.secondary-color')
+      }),
+      stroke: {
+        current: 'currentColor',
+      },
+      stroke: theme => ({
+        'white': theme('colors.white')
+      })
     },
   },
   variants: {
