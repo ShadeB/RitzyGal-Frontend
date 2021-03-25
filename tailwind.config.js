@@ -57,18 +57,13 @@ module.exports = {
       fill: theme => ({
         'secondary-color': theme('colors.secondary-color')
       }),
-      stroke: {
-        current: 'currentColor',
-      },
-      stroke: theme => ({
-        'white': theme('colors.white')
-      })
     },
   },
   variants: {
     scale: ['responsive', 'hover', 'focus', 'group-hover'],
-    ringWidth: ['responsive', 'hover', 'focus', 'group-hover'],
-    ringColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    ringWidth: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
+    ringColor: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
+    boxShadow: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
     extend: {
       display: ['before'],
       backgroundColor: ['next-on-focus', 'next-on-checked'],
@@ -76,6 +71,7 @@ module.exports = {
       borderRadius: ['before'],
       borderStyle: ['before'],
       borderWidth: ['before'],
+      boxShadow: ['group-focus'],
       height: ['before'],
       width: ['before'],
       margin: ['before', 'first-type'],
