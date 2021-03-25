@@ -74,7 +74,7 @@ module.exports = {
       boxShadow: ['group-focus'],
       height: ['before'],
       width: ['before'],
-      margin: ['before', 'first-type'],
+      margin: ['last', 'before', 'first-type'],
       opacity: [ 'next-on-focus', 'next-on-checked'],
       ringWidth: ['before', 'next-on-focus', 'next-on-checked'],
       ringOpacity: ['before', 'next-on-focus', 'next-on-checked'],
