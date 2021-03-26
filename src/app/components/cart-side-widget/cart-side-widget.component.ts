@@ -12,6 +12,7 @@ import {CartItem} from 'src/app/Interfaces/cart';
   styleUrls: ['./cart-side-widget.component.scss']
 })
 export class CartSideWidgetComponent implements OnInit {
+  quantity: number = 0;
 
   sideWidgetActive: Observable<boolean>;
   cartItem: CartItem;
@@ -30,6 +31,25 @@ export class CartSideWidgetComponent implements OnInit {
 
   sideBarClose() {
     this.cartWidgetService.setShowWidget(true);
+  }
+
+  reduceQuantity(id: string) {
+    const input = document.querySelector<HTMLInputElement>('input.quantity-input');
+    input.stepDown();
+    const value = input.value;
+    this.updateItemQuantity(value, id);
+  }
+
+  increaseQuantity(id: string) {
+    const input = document.querySelector<HTMLInputElement>('input.quantity-input');
+    input.stepUp();
+    const value = input.value;
+    this.updateItemQuantity(value, id);
+  }
+
+  updateItemQuantity(value: string, id: string) {
+    this.quantity = parseInt(value, 10);
+    this.cartService.updateItemQuantity(this.quantity, id)
   }
 
   getCartTotal() {
