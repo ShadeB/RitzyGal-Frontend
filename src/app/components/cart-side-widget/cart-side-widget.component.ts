@@ -30,7 +30,7 @@ export class CartSideWidgetComponent implements OnInit {
   }
 
   sideBarClose() {
-    this.cartWidgetService.setShowWidget(true);
+    this.cartWidgetService.setShowWidget(false);
   }
 
   reduceQuantity(id: string) {
