@@ -18,6 +18,7 @@ export class CartSideWidgetComponent implements OnInit {
   cartItem: CartItem;
   cart: CartItem[];
   cartTotal: number = 0;
+  cartEmpty: boolean = false;
 
   constructor(private cartWidgetService: CartWidgetService, private cartService: CartService) { }
 
@@ -59,5 +60,11 @@ export class CartSideWidgetComponent implements OnInit {
 
   getCartTotal() {
     this.cartTotal = this.cartService.getCartTotal();
+  }
+
+  //Check if the cart has been emptied so the side widget can close
+  isCartEmpty() {
+    let cartEmpty = this.cartService.isCartEmpty()
+    cartEmpty === true ? this.sideBarClose() : this.cartEmpty = cartEmpty;
   }
 }

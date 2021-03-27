@@ -60,6 +60,12 @@ export class CartService {
      this.cart$.next(this.cart);
    }
 
+   isCartEmpty() {
+     let isCartEmpty = false;
+     isCartEmpty = this.cart.length === 0 ? !isCartEmpty : isCartEmpty;
+     return isCartEmpty;
+   }
+
    updateItemQuantity(quantity: number, itemId: string) {
     for (let i in this.cart) {
       if(this.cart[i].id === itemId) {

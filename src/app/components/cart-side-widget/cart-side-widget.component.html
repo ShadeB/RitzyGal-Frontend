@@ -124,7 +124,7 @@
             <button
               type="submit"
               class="group outline-none focus:outline-none"
-              (click)="removeFromCart($event, item.id)"
+              (click)="removeFromCart($event, item.id); isCartEmpty()"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
