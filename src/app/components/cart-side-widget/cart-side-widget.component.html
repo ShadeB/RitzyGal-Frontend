@@ -121,7 +121,11 @@
                 <span class="sr-only">increase quantity</span>
               </button>
             </div>
-            <button type="submit" class="group outline-none focus:outline-none">
+            <button
+              type="submit"
+              class="group outline-none focus:outline-none"
+              (click)="removeFromCart($event, item.id)"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"

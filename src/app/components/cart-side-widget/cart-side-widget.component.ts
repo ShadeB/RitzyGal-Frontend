@@ -52,6 +52,11 @@ export class CartSideWidgetComponent implements OnInit {
     this.cartService.updateItemQuantity(this.quantity, id)
   }
 
+  removeFromCart(event: Event, id: string) {
+    event.preventDefault();
+    this.cartService.removeItemFromCart(id)
+  }
+
   getCartTotal() {
     this.cartTotal = this.cartService.getCartTotal();
   }
