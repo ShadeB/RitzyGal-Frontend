@@ -46,6 +46,15 @@ export class CartService {
     return this.cartTotal;
    }
 
+   removeItemFromCart(id: string) {
+    for (let i in this.cart) {
+      if(this.cart[i].id === id) {
+        let itemIndex = parseInt(i, 10);
+        this.cart.splice(itemIndex, 1);
+      }
+    }
+   }
+
    emptyCart() {
      this.cart.length = 0;
      this.cart$.next(this.cart);
