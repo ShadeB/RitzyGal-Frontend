@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {CartService} from 'src/app/services/cart.service';
 import {CartWidgetService} from 'src/app/services/cart-widget.service';
