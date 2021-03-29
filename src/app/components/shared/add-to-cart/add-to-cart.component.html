@@ -1,41 +1,65 @@
-<div class="add-to-cart__container">
-  <div class="add-to-cart-image__container">
-    <img [src]="product.image" alt="" />
+<div
+  class="p-4 lg:p-0 lg:py-14 max-w-screen-lg m-auto md:grid md:grid-cols-2 md:gap-20 lg:gap-40"
+>
+  <div class="h-64 md:h-full rounded overflow-hidden">
+    <img [src]="product.image" alt="" class="w-full h-full object-cover" />
   </div>
-  <div class="flex__container flex-direction__column add-to-cart__content">
-    <h3 class="heading product__name text-capitalize">{{ product.name }}</h3>
-    <p class="product__price">{{ product.price | currency: "USD" }}</p>
+  <div class="py-4 md:py-0">
+    <h3
+      class="mt-2 md:mt-0 uppercase text-indigo-800 font-semibold text-xl md:text-2xl"
+    >
+      {{ product.name }}
+    </h3>
+    <div class="mt-2">{{ product.price | currency: "USD" }}</div>
 
     <form action="" method="post" (submit)="addToCart($event)">
       <app-quantity-input
         (quantityChange)="getQuantityValue($event)"
       ></app-quantity-input>
-      <fieldset class="fieldset__color">
-        <legend>
-          color: <span>{{ selectedColor }}</span>
+      <fieldset class="py-3">
+        <legend
+          class="capitalize font-semibold text-gray-700 text-2xl leading-tight"
+        >
+          color:
+          <span class="text-2xl font-medium text-gray-700 ml-3">{{
+            selectedColor
+          }}</span>
         </legend>
-        <label *ngFor="let color of colors; index as i" for="{{ color.name }}">
+        <label
+          *ngFor="let color of colors; index as i"
+          for="{{ color.name }}"
+          class="group cursor-pointer ml-4 md:ml-6 first-type:ml-0"
+        >
           <input
             type="radio"
+            title="{{ color.name }}"
             name="color"
             id="{{ color.name }}"
             value="{{ color.name }}"
-            class="input__color-option"
+            class="input__color-option color-picked opacity-0 w-0 h-0 next-on-focus:ring-2 next-on-checked:ring-4"
             (change)="colorInputChangeHandler($event.target.value, i)"
             required
           />
-          <span>{{ color.name }}</span>
+          <span
+            data-content=""
+            class="inline-block w-8 h-8 rounded-2xl ring-1 group-hover:ring-2 group-hover:ring-gray-600 ring-gray-500 border-2 border-solid border-white mt-2"
+          ></span>
         </label>
       </fieldset>
 
-      <fieldset class="fieldset__size">
-        <legend>
-          size: <span>{{ selectedSize | uppercase }}</span>
+      <fieldset class="py-3">
+        <legend
+          class="capitalize font-semibold text-gray-700 text-2xl leading-tight mb-3"
+        >
+          size:
+          <span class="text-2xl font-medium text-gray-700 ml-3">{{
+            selectedSize | uppercase
+          }}</span>
         </legend>
         <label
           *ngFor="let size of sizes | keyvalue: keepObjectOrder"
           for="{{ size.value }}"
-          class="lbl-input__size-option"
+          class="group cursor-pointer ml-5 first-type:ml-0"
         >
           <input
             type="radio"
@@ -44,21 +68,21 @@
             value="{{ size.key }}"
             (change)="sizeInputChangeHandler($event.target.value)"
             required
-          /><span>{{ size.key | uppercase }}</span></label
+            class="opacity-0 h-0 w-0 next-on-focus:ring-2 next-on-focus:ring-blue-400 next-on-checked:ring-4 next-on-checked:ring-gray-600"
+          /><span
+            class="inline-block py-2 px-4 text-center rounded-lg shadow ring-1 group-hover:ring-2 ring-gray-500 group-hover:ring-gray-600"
+            >{{ size.key | uppercase }}</span
+          ></label
         >
       </fieldset>
 
-      <button type="submit" class="btn-add__to-cart text-center text-uppercase">
+      <button
+        type="submit"
+        class="p-6 mt-6 md:mt-16 text-center uppercase text-white bg-secondary-color hover:bg-pink-500 font-semibold rounded-lg shadow-md w-full outline-none focus:outline-none hover:ring-1 focus:ring"
+      >
         Add to cart
       </button>
     </form>
-
-    <div
-      class="subtotal__container flex__container flex-justify__space-between flex-align__end"
-    >
-      <h5 class="subtotal__label">Subtotal</h5>
-      <p class="subtotal__value">{{ product.price | currency: "USD" }}</p>
-    </div>
   </div>
 </div>
 <app-cart-side-widget></app-cart-side-widget>

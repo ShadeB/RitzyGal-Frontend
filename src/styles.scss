@@ -1,8 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
-@import "/src/partials/resets";
-@import "/src/partials/typography";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.container {
-  margin: 0 auto;
-  width: 100%;
+/* You can add global styles to this file, and also import other style files */
+
+.decorated-underline::after {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  left: 0rem;
+  right: -0.5rem;
+  height: 0.2rem;
+  background-color: pink;
 }

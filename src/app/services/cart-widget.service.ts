@@ -19,7 +19,7 @@ export class CartWidgetService implements OnInit {
   }
 
   setShowWidget(widgetShown: boolean) {
-    this.showWidget$.next(!this.showWidget$.value);
+    this.showWidget$.next(widgetShown);
   }
 
   toggleWidgetState() {

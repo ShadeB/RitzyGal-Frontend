@@ -1,27 +1,44 @@
-<div class="product__card">
-  <figure>
-    <img src="{{ product.image }}" alt="dress image" />
-  </figure>
-  <div class="product-card__data">
-    <div class="product-card__info">
-      <p>{{ product.name }}</p>
-      <p>{{ product.price | currency: "USD" }}</p>
+<div
+  class="bg-white border rounded-lg shadow-lg hover:shadow-2xl overflow-hidden pb-4"
+>
+  <div class="h-40 md:h-52">
+    <img
+      class="w-full h-full"
+      src="{{ product.image }}"
+      alt="image for {{ product.name }}"
+    />
+  </div>
+  <div class="px-4 py-2">
+    <div class="text-lg capitalize font-bold truncate">
+      {{ product.name }}
     </div>
-    <div class="product-card__details">
-      <p>{{ product.description }}</p>
-      <p>
-        rating:
+    <div class="text-lg mt-1">{{ product.price | currency: "USD" }}</div>
+    <div class="text-gray-800 text-sm mt-1">{{ product.description }}</div>
+    <div class="text-sm mt-1 text-gray-700 flex items-center">
+      <div class="flex">
         <ng-container *ngFor="let star of stars"
           ><app-star-rating></app-star-rating
         ></ng-container>
-      </p>
+      </div>
+      <span>Rating: 5</span>
     </div>
   </div>
 
-  <a
-    href=""
-    (click)="openAddToCart($event)"
-    class="btn-add__to-cart text-center"
-    >Add to cart</a
-  >
+  <div class="text-center mt-4 pb-2">
+    <a
+      href=""
+      (click)="openAddToCart($event)"
+      class="p-2 px-4 text-white bg-secondary-color hover:bg-pink-500 capitalize font-semibold shadow-sm text-center rounded-lg outline-none focus:ring"
+      >shop
+      <svg
+        class="w-6 h-6 ml-2 inline-block fill-current"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 16C4.9 16 4.01 16.9 4.01 18C4.01 19.1 4.9 20 6 20C7.1 20 8 19.1 8 18C8 16.9 7.1 16 6 16ZM0 0V2H2L5.6 9.59L4.25 12.04C4.09 12.32 4 12.65 4 13C4 14.1 4.9 15 6 15H18V13H6.42C6.28 13 6.17 12.89 6.17 12.75L6.2 12.63L7.1 11H14.55C15.3 11 15.96 10.59 16.3 9.97L19.88 3.48C19.96 3.34 20 3.17 20 3C20 2.45 19.55 2 19 2H4.21L3.27 0H0ZM16 16C14.9 16 14.01 16.9 14.01 18C14.01 19.1 14.9 20 16 20C17.1 20 18 19.1 18 18C18 16.9 17.1 16 16 16Z"
+        />
+      </svg>
+    </a>
+  </div>
 </div>

@@ -1,18 +1,24 @@
-<div class="layout product__listing">
-  <div class="product-card__container">
-    <ng-container *ngIf="errors">
-      <div>
-        Connection failure: <span>please check your internet connection</span>
+<div class="p-4 pt-0 max-w-screen-lg lg:m-auto lg:px-0">
+  <ng-container *ngIf="errors">
+    <div>
+      Connection failure: <span>please check your internet connection</span>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="loading">
+    <div>Loading...</div>
+  </ng-container>
+  <ng-container *ngIf="products && products.length > 0">
+    <div class="">
+      <h2 class="text-2xl font-semibold mb-4">Newest</h2>
+      <!-- Product cards -->
+      <div
+        class="py-4 grid gap-3 sm:gap-5 grid-flow-col grid-auto-columns grid-row-none overflow-x-scroll scrollable-container cards-end-spacer"
+      >
+        <app-product-card
+          *ngFor="let product of products"
+          [product]="product"
+        ></app-product-card>
       </div>
-    </ng-container>
-    <ng-container *ngIf="loading">
-      <div>Loading...</div>
-    </ng-container>
-    <ng-container *ngIf="products && products.length > 0">
-      <app-product-card
-        *ngFor="let product of products"
-        [product]="product"
-      ></app-product-card>
-    </ng-container>
-  </div>
+    </div>
+  </ng-container>
 </div>
