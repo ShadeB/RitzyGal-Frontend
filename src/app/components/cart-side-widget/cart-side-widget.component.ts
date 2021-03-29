@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {CartService} from 'src/app/services/cart.service';
 import {CartWidgetService} from 'src/app/services/cart-widget.service';
@@ -11,7 +11,7 @@ import {CartItem} from 'src/app/Interfaces/cart';
   templateUrl: './cart-side-widget.component.html',
   styleUrls: ['./cart-side-widget.component.scss']
 })
-export class CartSideWidgetComponent implements OnInit {
+export class CartSideWidgetComponent implements OnInit, OnDestroy {
   quantity: number = 0;
 
   sideWidgetActive: Observable<boolean>;
@@ -28,6 +28,10 @@ export class CartSideWidgetComponent implements OnInit {
       this.getCartTotal();
       this.cart = cart;
     })
+  }
+
+  ngOnDestroy():void {
+    this.cartWidgetService.setShowWidget(false);
   }
 
   sideBarClose() {
