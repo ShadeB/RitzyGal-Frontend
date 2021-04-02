@@ -9,11 +9,28 @@ import {Cart, CartItem} from 'src/app/Interfaces/cart';
 export class CartService {
   cartItem: CartItem;
   cart: CartItem[] = [];
+  itemsInCart: number = 0;
   cartTotal: number = 0;
   cart$;
 
   constructor() {
     this.cart$ = new BehaviorSubject(this.cart);
+   }
+
+   behaviourSubjectNext():void {
+    this.cart$.next(this.cart);
+   }
+
+   setTotalCartItems() {
+    let cartItems = 0;
+     this.cart.forEach((item: CartItem) => {
+       cartItems += item.quantity;
+     })
+     this.itemsInCart = cartItems;
+   }
+
+   getTotalCartItems() {
+     return this.itemsInCart;
    }
 
    addToCart(cartItem: CartItem) {
@@ -30,8 +47,9 @@ export class CartService {
     if(!productInCart) {
       this.cart.push(cartItem);
     }
+    this.setTotalCartItems();
     this.cart$.next(this.cart);
-   }
+  }
 
    onCartChange() {
     return this.cart$.asObservable();
@@ -53,6 +71,8 @@ export class CartService {
         this.cart.splice(itemIndex, 1);
       }
     }
+    this.setTotalCartItems();
+    this.behaviourSubjectNext();
    }
 
    emptyCart() {
@@ -70,6 +90,8 @@ export class CartService {
     for (let i in this.cart) {
       if(this.cart[i].id === itemId) {
         this.cart[i].quantity = quantity;
+        this.setTotalCartItems();
+        this.behaviourSubjectNext();
         break;
       }
     }
